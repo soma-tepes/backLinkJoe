@@ -5,7 +5,7 @@ const db = new Sequelize({
   host: process.env.HOST,
   database: process.env.DB,
   username: process.env.SERVICE,
-  password: process.env.PASSWORD,
+  password: "",
   port: process.env.LOCALPORT,
   logging: false,
 });
