@@ -1,70 +1,50 @@
 const express = require('express')
 const router = express.Router()
-const { createUrlModel1, createUrlModel2,createUrlModel3,createUrlModel4,createUrlModel5,createUrlModel6 } = require('../models/creategeneric.model')
+const { createUrlModel1, createUrlModel2,createUrlModel3,createUrlModel4,createUrlModel5,createUrlModel6, createFooterList1, createFooterList2, createFooterList3 } = require('../models/creategeneric.model')
 const controllerGeneric = require('../controller/generic.controller')
+const iterableLink = [createUrlModel1, createUrlModel2,createUrlModel3,createUrlModel4,createUrlModel5,createUrlModel6 ]
+const iterableFooter = [createFooterList1, createFooterList2, createFooterList3]
+const  array = ["/a","/b","/c","/d","/e","/f"]
+const addList = ["/addlist1footer","/addlist2footer","/addlist3footer"]
 
-router
-  .route("/a")
-  .get(controllerGeneric.findLink(createUrlModel1))
-  .post(controllerGeneric.createLink(createUrlModel1))
-
-router
-  .route("/b")
-  .get(controllerGeneric.findLink(createUrlModel2))
-  .post(controllerGeneric.createLink(createUrlModel2))
-  router
-  .route("/c")
-  .get(controllerGeneric.findLink(createUrlModel3))
-  .post(controllerGeneric.createLink(createUrlModel3))
-  router
-  .route("/d")
-  .get(controllerGeneric.findLink(createUrlModel4))
-  .post(controllerGeneric.createLink(createUrlModel4))
-  router
-  .route("/e")
-  .get(controllerGeneric.findLink(createUrlModel5))
-  .post(controllerGeneric.createLink(createUrlModel5))
-  router
-  .route("/f")
-  .get(controllerGeneric.findLink(createUrlModel6))
-  .post(controllerGeneric.createLink(createUrlModel6))
-
-  router
-  .route("/a/:id")
-  .get(controllerGeneric.findOneUser(createUrlModel1))
-  .patch(controllerGeneric.updateLink(createUrlModel1))
-  .delete(controllerGeneric.deleteLink(createUrlModel1))
+for (let index = 0 ; index < array.length; index++) {
   
-
   router
-  .route("/b/:id")
-  .get(controllerGeneric.findOneUser(createUrlModel2))
-  .patch(controllerGeneric.updateLink(createUrlModel2))
-  .delete(controllerGeneric.deleteLink(createUrlModel2))
-
+  .route(array[index])
+  .get(controllerGeneric.findLink(iterableLink[index]))
+  .post(controllerGeneric.createLink(iterableLink[index]))
+ 
+}
+for (let index = 0; index <addList.length; index++) {
+  
   router
-  .route("/c/:id")
-  .get(controllerGeneric.findOneUser(createUrlModel3))
-  .patch(controllerGeneric.updateLink(createUrlModel3))
-  .delete(controllerGeneric.deleteLink(createUrlModel3))
+ .route(addList[index])
+ .get(controllerGeneric.findLink(iterableFooter[index]))
+ .post(controllerGeneric.createLink(iterableFooter[index]))
 
-  router
-  .route("/d/:id")
-  .get(controllerGeneric.findOneUser(createUrlModel4))
-  .patch(controllerGeneric.updateLink(createUrlModel4))
-  .delete(controllerGeneric.deleteLink(createUrlModel4))
+}
 
+for (let index = 0; index < array.length; index++) {
   router
-  .route("/e/:id")
-  .get(controllerGeneric.findOneUser(createUrlModel5))
-  .patch(controllerGeneric.updateLink(createUrlModel5))
-  .delete(controllerGeneric.deleteLink(createUrlModel5))
+  .route(array[index]+"/:id")
+  .get(controllerGeneric.findOneUser(iterableLink[index]))
+  .patch(controllerGeneric.updateLink(iterableLink[index]))
+  .delete(controllerGeneric.deleteLink(iterableLink[index]))
+ 
 
+}
+
+for (let index = 0; index < array.length; index++) {
   router
-  .route("/f/:id")
-  .get(controllerGeneric.findOneUser(createUrlModel6))
-  .patch(controllerGeneric.updateLink(createUrlModel6))
-  .delete(controllerGeneric.deleteLink(createUrlModel6))
+  .route(addList[index]+"/:id")
+  .get(controllerGeneric.findOneUser(iterableFooter[index]))
+  .patch(controllerGeneric.updateLink(iterableFooter[index]))
+  .delete(controllerGeneric.deleteLink(iterableFooter[index]))
+ 
+
+}
+
+
 
 
 

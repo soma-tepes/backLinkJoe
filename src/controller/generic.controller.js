@@ -31,7 +31,7 @@ exports.findLink  = (model)=> async (req, res) => {
     } catch (error) {
         return res.status(400).json({
             status: "fail!",
-            message: "Failed search users!"
+            message: "Failed search !"
         })
     }
 }
@@ -81,12 +81,12 @@ exports.findOneUser  = (model)=> async (req, res) => {
 
         if (!user) {
             return res.status(404).json({
-                message: "No user with ID"
+                message: "No  with ID"
             })
         }
         return res.status(200).json({
             status: "success",
-            message: "user successfully!",
+            message: "successfully!",
             user,
           });
         //
