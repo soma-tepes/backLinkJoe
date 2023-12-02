@@ -11,7 +11,7 @@ db.sync()
 .then(()=>{console.log("database sucess!")})
 .catch(()=>{console.log("error db syncro")})
 
-app.listen(process.env.PORT_CONECTION,()=>{
+/* app.listen(process.env.PORT_CONECTION,()=>{
     console.log(`Server running PORT ${process.env.PORT_CONECTION}`)
  
-})
+}) */
