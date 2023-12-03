@@ -60,4 +60,5 @@ app.use("/api/v1/url/search", routerArtitle);
 const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Servidor Socket.io escuchando en el puerto ${PORT}`);
+  console.log(`Servidor Socket.io escuchando en el puerto ${PORT}`);
 });
